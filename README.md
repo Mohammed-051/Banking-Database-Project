@@ -5,8 +5,8 @@ A comprehensive Oracle database project for managing banking operations, includi
 ## Project Structure
 
 ```
-bank-management-system/
-├── sql/                          # Database scripts
+Banking-Database-Project/
+├── sql/                          # Database DDL scripts
 │   ├── 01_create_tables.sql      # Table definitions
 │   ├── 02_create_indexes.sql     # Performance indexes
 │   └── 03_create_audit.sql       # Audit trail & triggers
@@ -15,10 +15,12 @@ bank-management-system/
 │   └── data_generator.py         # Test data generator
 ├── data/                         # Sample CSV data
 │   ├── bank_data.csv
-│   ├── branch_data.csv
 │   ├── customer_data.csv
 │   ├── account_data.csv
 │   └── ...
+├── docs/                         # Documentation
+│   ├── diagrams/                 # ER diagrams
+│   └── legacy/                   # Original SQL drafts
 ├── requirements.txt              # Python dependencies
 └── README.md
 ```
