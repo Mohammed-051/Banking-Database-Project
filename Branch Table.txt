@@ -1,0 +1,10 @@
+CREATE TABLE Branch (
+    Branch_Code VARCHAR2(10) PRIMARY KEY,
+    Branch_name VARCHAR2(100) NOT NULL,
+    Address VARCHAR2(200),
+    Head_Office VARCHAR2(100),
+    Branch_Details VARCHAR2(200),
+    City_Name VARCHAR2(50),
+    Bank_Code VARCHAR2(10),
+    CONSTRAINT fk_branch_bank FOREIGN KEY (Bank_Code) REFERENCES Bank(Code)
+);

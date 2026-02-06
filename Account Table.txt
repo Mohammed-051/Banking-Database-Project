@@ -1,0 +1,20 @@
+CREATE TABLE Account (
+    Account_No VARCHAR2(15) PRIMARY KEY,
+    Account_Balance NUMBER(15,2) NOT NULL,
+    Account_Type VARCHAR2(20),
+    Account_Type_Description VARCHAR2(200),
+    Customer_Id VARCHAR2(10),
+    CONSTRAINT fk_account_customer FOREIGN KEY (Customer_Id) REFERENCES Customer(Cust_Id)
+);
+
+CREATE TABLE Saving (
+    Account_No VARCHAR2(15) PRIMARY KEY,
+    Interest_Rate NUMBER(5,2),
+    CONSTRAINT fk_saving_account FOREIGN KEY (Account_No) REFERENCES Account(Account_No)
+);
+
+CREATE TABLE Current (
+    Account_No VARCHAR2(15) PRIMARY KEY,
+    Overdraft_Limit NUMBER(12,2),
+    CONSTRAINT fk_current_account FOREIGN KEY (Account_No) REFERENCES Account(Account_No)
+);

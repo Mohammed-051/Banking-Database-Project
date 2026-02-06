@@ -1,0 +1,23 @@
+CREATE OR REPLACE TRIGGER account_balance_change
+AFTER UPDATE OF Account_Balance ON Account
+FOR EACH ROW
+BEGIN
+    INSERT INTO Account_Audit (
+        Audit_Id,
+        Account_No,
+        Operation,
+        Old_Balance,
+        New_Balance,
+        Change_Date,
+        Changed_By
+    ) VALUES (
+        audit_seq.NEXTVAL,
+        :NEW.Account_No,
+        'UPDATE',
+        :OLD.Account_Balance,
+        :NEW.Account_Balance,
+        SYSTIMESTAMP,
+        USER
+    );
+END;
+/

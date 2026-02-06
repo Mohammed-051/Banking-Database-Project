@@ -1,0 +1,8 @@
+CREATE TABLE Account_Management (
+    Account_No VARCHAR2(15),
+    Emp_Id VARCHAR2(10),
+    Management_Date DATE,
+    PRIMARY KEY (Account_No, Emp_Id),
+    CONSTRAINT fk_mngmt_account FOREIGN KEY (Account_No) REFERENCES Account(Account_No),
+    CONSTRAINT fk_mngmt_employee FOREIGN KEY (Emp_Id) REFERENCES Employee(Emp_Id)
+);

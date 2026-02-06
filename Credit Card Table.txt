@@ -1,0 +1,9 @@
+CREATE TABLE Credit_Card (
+    Credit_Card_Number VARCHAR2(20) PRIMARY KEY,
+    Credit_Limit NUMBER(12,2),
+    Amount_Spent NUMBER(12,2),
+    Bill_Payment_Due_Date DATE,
+    Minimum_Payment NUMBER(12,2),
+    Customer_Id VARCHAR2(10),
+    CONSTRAINT fk_card_customer FOREIGN KEY (Customer_Id) REFERENCES Customer(Cust_Id)
+);

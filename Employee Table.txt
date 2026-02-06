@@ -1,0 +1,6 @@
+CREATE TABLE Employee (
+    Emp_Id VARCHAR2(10) PRIMARY KEY,
+    Emp_name VARCHAR2(100) NOT NULL,
+    Mobile_no VARCHAR2(20),
+    Address VARCHAR2(200)
+);

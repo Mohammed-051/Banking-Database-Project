@@ -1,0 +1,7 @@
+CREATE TABLE Payment (
+    Payment_No VARCHAR2(15) PRIMARY KEY,
+    Payment_Date DATE NOT NULL,
+    Payment_Amount NUMBER(12,2) NOT NULL,
+    Loan_No VARCHAR2(15),
+    CONSTRAINT fk_payment_loan FOREIGN KEY (Loan_No) REFERENCES Loan(Loan_No)
+);

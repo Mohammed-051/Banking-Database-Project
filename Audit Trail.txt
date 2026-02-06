@@ -1,0 +1,18 @@
+-- Audit trail for tracking account changes
+CREATE TABLE Account_Audit (
+    Audit_Id NUMBER PRIMARY KEY,
+    Account_No VARCHAR2(15),
+    Operation VARCHAR2(10),
+    Old_Balance NUMBER(15,2),
+    New_Balance NUMBER(15,2),
+    Change_Date TIMESTAMP,
+    Changed_By VARCHAR2(50),
+    CONSTRAINT fk_audit_account FOREIGN KEY (Account_No) REFERENCES Account(Account_No)
+);
+
+-- Sequence for audit IDs
+CREATE SEQUENCE audit_seq
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE
+    NOCYCLE;

@@ -1,0 +1,26 @@
+CREATE TABLE Customer (
+    Cust_Id VARCHAR2(10) PRIMARY KEY,
+    First_Name VARCHAR2(50),
+    Last_Name VARCHAR2(50),
+    Name VARCHAR2(100),
+    Birth_Date DATE,
+    Street_Number VARCHAR2(20),
+    Street_Name VARCHAR2(100),
+    Unit VARCHAR2(20),
+    City VARCHAR2(50),
+    State VARCHAR2(30),
+    Zip_Code VARCHAR2(10),
+    Email_Id VARCHAR2(100),
+    Social_Security_Number VARCHAR2(20),
+    Address VARCHAR2(200),
+    Branch_Code VARCHAR2(10),
+    CONSTRAINT fk_customer_branch FOREIGN KEY (Branch_Code) REFERENCES Branch(Branch_Code)
+);
+
+CREATE TABLE Customer_Phone (
+    Phone_Number VARCHAR2(20),
+    Customer_Id VARCHAR2(10),
+    Phone_Type VARCHAR2(20),
+    PRIMARY KEY (Phone_Number, Customer_Id),
+    CONSTRAINT fk_cusphone_customer FOREIGN KEY (Customer_Id) REFERENCES Customer(Cust_Id)
+);

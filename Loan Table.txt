@@ -1,0 +1,14 @@
+CREATE TABLE Loan (
+    Loan_No VARCHAR2(15) PRIMARY KEY,
+    Loan_Amount NUMBER(15,2) NOT NULL,
+    Loan_Type VARCHAR2(50),
+    Loan_Duration_Months NUMBER(4),
+    Interest_Rate NUMBER(5,2),
+    Monthly_Payment_Due_Date DATE,
+    Monthly_Minimum_Payment NUMBER(12,2),
+    Payment_Method VARCHAR2(30),
+    Customer_Id VARCHAR2(10),
+    Emp_Id VARCHAR2(10),
+    CONSTRAINT fk_loan_customer FOREIGN KEY (Customer_Id) REFERENCES Customer(Cust_Id),
+    CONSTRAINT fk_loan_employee FOREIGN KEY (Emp_Id) REFERENCES Employee(Emp_Id)
+);
